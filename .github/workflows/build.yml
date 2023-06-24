@@ -15,7 +15,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7'
+          ruby-version: '3.2'
 
       - name: Install dependencies
         run: |
@@ -27,6 +27,7 @@ jobs:
 
       - name: Publish to RubyGems
         run: |
+          gem signin
           gem push fluent-plugin-eventbridge-*.gem
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
