@@ -27,8 +27,7 @@ jobs:
 
       - name: Publish to RubyGems
         run: |
-          gem signin
-          gem push fluent-plugin-eventbridge-*.gem
+          gem push -k ${{ secrets.RUBYGEMS_API_KEY }} fluent-plugin-eventbridge-*.gem
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
 
