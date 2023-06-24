@@ -1,13 +1,17 @@
-require "bundler"
-Bundler::GemHelper.install_tasks
+require 'rake'
+require 'rake/packagetask'
+require 'rake/testtask'
 
-require "rake/testtask"
+desc 'Build and release the package'
+task :release => [:build, :publish]
 
-Rake::TestTask.new(:test) do |t|
-  t.libs.push("lib", "test")
-  t.test_files = FileList["test/**/test_*.rb"]
-  t.verbose = true
-  t.warning = true
+task :build do
+  # Define the steps to build your package
+  sh 'gem build fluent-plugin-eventbridge.gemspec'
 end
 
-task default: [:test]
+task :publish do
+  # Define the steps to publish the package to a gem server
+  sh 'gem push fluent-plugin-eventbridge-*.gem'
+end
+

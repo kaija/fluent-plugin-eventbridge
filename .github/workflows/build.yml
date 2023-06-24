@@ -26,8 +26,9 @@ jobs:
         run: bundle exec fluent-gem build fluent-plugin-eventbridge.gemspec
 
       - name: Publish to RubyGems
-        run: |
-          gem push -k ${{ secrets.RUBYGEMS_API_KEY }} fluent-plugin-eventbridge-*.gem
+        uses: cadwallion/publish-rubygems-action@master
         env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+          RELEASE_COMMAND: rake release
 
