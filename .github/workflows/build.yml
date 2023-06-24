@@ -25,3 +25,9 @@ jobs:
       - name: Build plugin
         run: bundle exec fluent-gem build fluent-plugin-eventbridge.gemspec
 
+      - name: Publish to RubyGems
+        run: |
+          gem push fluent-plugin-eventbridge-*.gem
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+
