@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  fluentd:
+    build: .
+    env_file: .env
+    ports:
+      - 9880:9880
+    volumes:
+      - ./fluent.conf:/fluentd/etc/fluent.conf
+    restart: always
+
