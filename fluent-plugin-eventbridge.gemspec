@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name    = "fluent-plugin-eventbridge"
-  spec.version = "0.1.0"
+  spec.version = "0.1.3"
   spec.authors = ["kaija"]
   spec.email   = ["kaija.chang@gmail.com"]
 
@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = test_files
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "aws-sdk-eventbridge", "~> 1.3"
   spec.add_development_dependency "bundler", "~> 2.4.13"
   spec.add_development_dependency "rake", "~> 13.0.6"
   spec.add_development_dependency "test-unit", "~> 3.5.7"

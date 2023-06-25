@@ -18,7 +18,7 @@ require 'aws-sdk-eventbridge'
 
 module Fluent::Plugin
   class AwsEventBridgeOutput < Fluent::Plugin::Output
-    Fluent::Plugin.register_output('aws_eventbridge', self)
+    Fluent::Plugin.register_output('eventbridge', self)
 
     config_param :aws_key_id, :string, default: nil, secret: true
     desc 'AWS secret key.'
@@ -80,7 +80,7 @@ module Fluent::Plugin
     config_param :aws_region, :string, default: 'ap-northeast-1'
     config_param :event_bus_name, :string, default: 'default'
     config_param :batch_size, :integer, default: 15
-    config_param :source_key, :string, default: 'domain_name'
+    config_param :source_key, :string, default: 'source'
     config_param :detail_type_key, :string, default: 'event_type'
     config_param :time_key, :string, default: 'time'
 
