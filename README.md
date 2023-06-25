@@ -170,6 +170,24 @@ Path to the shared file. (default: $HOME/.aws/credentials)
 
 Profile name. Default to 'default' or ENV['AWS_PROFILE']
 
+### Configuration sample
+
+```
+<match **>
+    @type eventbridge
+
+    aws_key_id  YOUR_AWS_KEY_ID
+    aws_sec_key YOUR_AWS_SECRET_KEY
+    aws_region  YOUR_AWS_REGION
+
+    event_bus_name  BUS_NAME
+    source_key      source
+    detail_type_key event_type
+    time_key        time
+    batch_size      10
+</match>
+```
+
 ## Copyright
 
 * Copyright(c) 2023- kaija
